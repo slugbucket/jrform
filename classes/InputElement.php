@@ -10,6 +10,7 @@ class InputElement {
   var $size;
   var $tabindex;
   var $taborder;
+  var $onclick;
   var $id = "";
   var $class;
   var $checked = ""; /* For radio and checkbox */
@@ -28,6 +29,7 @@ class InputElement {
                             'tabindex'    => 'str',
                             'style'       => 'str',
                             'onmouseover' => 'str',
+                            'onclick'     => 'str',
                             'onmouseout'  => 'str' );
   var $checkboxAttrs = array( 'name'        => 'str',
                               'id'          => 'str',
@@ -40,6 +42,7 @@ class InputElement {
                               'tabindex'    => 'str',
                               'style'       => 'str',
                               'onmouseover' => 'str',
+                              'onclick'     => 'str',
                               'onmouseout'  => 'str' );
   var $radioAttrs = array( 'name'        => 'str',
                            'id'          => 'str',
@@ -52,6 +55,7 @@ class InputElement {
                            'tabindex'    => 'str',
                            'style'       => 'str',
                            'onmouseover' => 'str',
+                           'onclick'     => 'str',
                            'onmouseout'  => 'str' );
 
   /*
@@ -157,6 +161,7 @@ class InputElement {
     if( $this->class ) { $elemStr .= " class=\"" . $this->class . "\""; }
     if( $this->disabled ) { $elemStr .= " disabled"; }
     if( $this->readonly ) { $elemStr .= " readonly"; }
+    if( $this->onclick ) { $elemStr .= " onClick='" . $this->onclick . "';"; }
     if( $this->id ) { $elemStr .= " id=\"" . $this->id . "\""; }
     if( $this->size && $this->elemType == "text" ) {
       $elemStr .= " size=\"" . $this->size . "\"";

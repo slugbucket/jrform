@@ -72,7 +72,7 @@ class Form {
    */
   function hasElement( $elem = "" ) {
     if( ! $elem ) { return( false ); }
-    if( $this->$formElements[$elem] ) { return( true ); }
+    if( isset( $this->formElements[$elem] ) ) { return( true ); }
     return( false );
   }
 

@@ -12,6 +12,7 @@ class Textarea {
   var $wrap; /* Netscape only */
   var $tabindex;
   var $onblur;
+  var $onclick;
   var $onchange;
   var $onfocus;
   var $onselect;
@@ -50,9 +51,10 @@ class Textarea {
     if( $this->elemName == "" ) { return( "" ); }
     $elemStr = $this->preStr . "<textarea " . "name=\"" . $this->elemName . "\" " .
                "cols=\"" . $this->cols . "\" rows=\"" . $this->rows . "\"";
-    if( $this->id ) { $elemStr .= " id=\"" . $this->id . "\""; }
-    if( $this->class ) { $elemStr .= " class=\"" . $this->class . "\""; }
+    if( $this->id )       { $elemStr .= " id=\"" . $this->id . "\""; }
+    if( $this->class )    { $elemStr .= " class=\"" . $this->class . "\""; }
     if( $this->disabled ) { $elemStr .= " disabled"; }
+    if( $this->onclick )  { $elemStr .= " onClick='" . $this->onclick . "';"; }
     if( $this->readonly ) { $elemStr .= " readonly"; }
     $elemStr .= ">" . $this->elemValue . "</textarea>\n" . $this->postStr;
     return( $elemStr );
