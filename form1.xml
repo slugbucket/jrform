@@ -1,0 +1,54 @@
+<form name="topics" method="post" action="doform.php">
+  <topiclist board="school">
+    <topic id="4001">
+      <title>Fund Raising</title>
+      <owner>julian</owner>
+      <opened>1023456789</opened>
+      <threads>3</threads>
+      <messages>16</messages>
+      <permlist>
+        <perms value="---">None</perms>
+        <perms value="r--">Read own</perms>
+        <perms value="rr-">Read all</perms>
+        <perms value="wr-">Read all; write own</perms>
+        <perms value="ww-">Write all</perms>
+        <perms value="www" selected="yes">Superuser</perms>
+      </permlist>
+      <approved>yes</approved>
+      <edit type="button" value="Edit" />
+    </topic>
+    <topic id="4000">
+      <title>Spring Fair</title>
+      <owner>kristin</owner>
+      <opened>1002345678</opened>
+      <threads>5</threads>
+      <messages>19</messages>
+      <permlist>
+        <perms value="---">None</perms>
+        <perms value="r--">Read own</perms>
+        <perms value="rr-">Read all</perms>
+        <perms value="wr-" selected="yes">Read all; write own</perms>
+        <perms value="ww-">Write all</perms>
+        <perms value="www">Superuser</perms>
+      </permlist>
+      <approved>yes</approved>
+    </topic>
+    <topic id="4002">
+      <title>Spring Fair</title>
+      <owner>diane</owner>
+      <opened>1001345678</opened>
+      <threads>7</threads>
+      <messages>32</messages>
+      <permlist>
+        <perms value="---">None</perms>
+        <perms value="r--">Read own</perms>
+        <perms value="rr-" selected="yes">Read all</perms>
+        <perms value="wr-">Read all; write own</perms>
+        <perms value="ww-">Write all</perms>
+        <perms value="www">Superuser</perms>
+      </permlist>
+      <approved>yes</approved>
+      <edit type="button" value="Edit" />
+    </topic>
+  </topiclist>
+</form>

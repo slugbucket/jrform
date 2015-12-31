@@ -1,0 +1,96 @@
+Form Lifecycle
+==============
+The process of displaying data to manipulated and act of manipulating the
+data generally follows the form:
+ 1. Display list of data with links to edit any particular item,
+ 2. Detail display of an item,
+ 3. Procees form submission and highlighting any errors.
+
+Forms using 'jrform' should be created according to the following guidelines.
+1. The page content ino which the form will be embedded.
+At the start, it should load the the form object classes:
+<?php include "jrform.php"; ?>
+In addition to any other PHP code required by the application.
+2. At the point where the list or form data is to be displayed load a PHP
+script that will act as a driver processing certain form data to decide what
+part of the lifecycle is currently active. The driver should also capture any
+form variables that may be used throughout the forms.
+3. The form specification and processing code. Typically, this will be a set of
+functions used by the driver to display and proces the form.
+4. Templates embedding form elements into the main page.
+
+A jrform consists of the following items:
+ 1. Submitted form variables,
+ 2. Queries: how to extract information from the database,
+ 3. Errors: Indicates to the driver code whether anything has gone wrong or not.
+
+Select Element Dropdown lists
+=============================
+The fill option controls the element display in the following way:
+  db: use only the values from the database, where the value attribute
+    gives the name of the column to use for the option value, and the
+    display attribute gives the name of the column to use for the
+    displayed text for the option.
+  select: The option list is populated from the XML file with the
+    value attribute used to specify which column should be matched to
+    provide a selected option. If the XML value attribute has no
+    value, no match is attempted.
+  file: The option list is populated from the database query where
+    the value attribute gives the name of the column to use for the
+    option value, and the display attribute gives the name of the
+    column to use for the displayed text for the option. Any of the
+    dropdown elements value attribute values that match the database
+    column will be marked 'selected'.
+The default control is select.
+
+Adding New Items to a jrform
+============================
+This should be a straightformward process:
+ 1. Add the form item to the form XML file,
+ 2. Capture submitted values for the element in the driver,
+ 3. Add whatever processing code to the processing module,
+ 4. Include the element in the display template.
+
+Form Example
+============
+School website, user administration form:
+User admin page: users.php. This includes the driver, driver.php.
+The driver checks whether form variables (POST or GET) indicate a user admin
+operation and includes the form processor, userform.php and the template,
+templates/user_table.php. The form description for the user admin form is in
+users.xml.
+Therefore, the user admin form consists of:
+ users.php
+   jrform.php
+     connect.php
+     class/Form.php
+     class/InputElement.php
+     class/SelectElement.php
+     class/Textarea.php
+ driver.php
+   userform.php
+     users.xml
+   templates/user_table.php
+
+The form is contructed when users.php includes driver.php. This script checks
+any form variables for an 'ftype' set to 'user' and then includes
+'userform.php'. A call to the 'admin_users' function (in userform.php) creates
+a form listing the currently selected entry, retaining and data submitted by a
+previous submission attempt.
+The form data is then checked to see what type of operation is being performed.
+If an update has been requested, the modify_user defined in userform.php is
+called. From this the error status is checked and if the submitted form is
+deemed to have contained errors, it is re-displayed using the template,
+templates/user_table.php; this contains hooks that look at the $errors array
+and display an appropriate message if an error has occurred.
+If an update has not been requested, the form is displayed using the results
+of a database query, $qry_ary['user_detail'] for the form elements; the
+form specification file, users.xml contains an attribute of the form tag,
+query="user_detail", that indicates which query should be used to populate the
+form elements. The form tag also contains another attribute, nodata, that
+indicates what to do if no data is returned by the query: the value 'break'
+says to abandon the form; this is detected in driver.php where if the form
+has not been created an error is displayed. If the 'nodata' attribute has any
+value other than 'break', form processing continues using the default values
+listed in the XML specification.
+directs the form to us

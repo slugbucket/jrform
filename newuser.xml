@@ -1,0 +1,30 @@
+<formlist>
+  <form name="user" method="post" nodata="continue" class="textbox">
+    <input type="hidden" name="ftype" pre="" post="">user</input>
+    <input type="text" name="uname" onclick='this.value=&quot;&quot;'>User name</input>
+    <input type="text" name="fname" pre="" post="" onclick='this.value=&quot;&quot;'>Full name</input>
+    <input type="text" name="email" pre="" post="" width="45" onclick='this.value=&quot;&quot;'>user@domain.com</input>
+    <input type="password" name="password" pre="" post=""></input>
+    <input type="text" name="hint" order="4" pre="" post="" onclick='this.value=&quot;&quot;'>Password Hint</input>
+    <dropdown name="role" value="u_role" order="5" fill="select" pre="" post="">
+      <option value="---">None</option>
+      <option value="r--">Read messages</option>
+      <option value="w--">Post messages</option>
+      <option value="rr-">Read messages, topics</option>
+      <option value="wr-">Write messages, read topics</option>
+      <option value="ww-">Submit Topic</option>
+      <option value="rrr">View Users</option>
+      <option value="wwr">Submit topics, messages, view users</option>
+      <option value="www" selected="yes">Superuser</option>
+    </dropdown>
+    <input type="submit" name="update" class="button" order="7" post="">Add</input>
+    <input type="reset" name="reset" class="button" order="8" post="">Reset</input>
+    <input type="hidden" name="action" pre="" post="">add</input>
+    <input type="hidden" name="reload" pre="" post="">yes</input>
+  </form>
+  <form name="search" method="post" class="textbox">
+    <input type="hidden" name="ftype" pre="" post="">user</input>
+    <input type="text" name="surname" pre="Search" post="" onclick='this.value=&quot;&quot;'>Surname</input>
+    <input type="submit" name="find" class="button" post="">Go</input>
+  </form>
+</formlist>

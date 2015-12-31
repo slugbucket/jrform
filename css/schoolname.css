@@ -1,0 +1,63 @@
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10 pt;
+}
+
+a.bottomnav:active{ color: #006699 ;  text-decoration: none; }
+a.bottomnav:link{ color: #006699; text-decoration: none; }
+a.bottomnav:visited{ color: #006699; text-decoration: none; }
+a.bottomnav:hover{ color: #006699; text-decoration: underline; }
+
+.dotted { border-right : 1px dotted #006699 }
+
+/*
+ * Message board related styles
+ */
+a.topic:active{ color: #990000 ;  text-decoration: none; }
+a.topic:link{ color: #990000; text-decoration: none;  }
+a.topic:visited{ color: #990000; text-decoration: none;  }
+a.topic:hover{ color: #990000; text-decoration: underline; }
+
+.topicdetails {font-size: 8pt; }
+th.messagebox{
+border : 1px solid #00486F;
+background-color: #00486F;
+font-size: 10 pt;
+color: #FFFFFF;
+font-weight: bold;
+padding: 4px 4px 4px 4px;
+vertical-align: top;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+td.messagebox{
+	border : 1px solid #006699;
+	background-color: #E0F3FE;
+	padding: 4px 4px 4px 4px;
+	vertical-align: top;
+	font-size: 10pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.textbox { border: 1px solid #00486F; padding: 2px }
+td.helptext{
+	border : 1px solid #006699;
+	background-color: #E0F3FE;
+	padding: 4px 4px 4px 4px;
+	vertical-align: top;
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.messagebox:active{ color: #006699 ;  text-decoration: none; }
+a.messagebox:link{ color: #006699; text-decoration: none; }
+a.messagebox:visited{ color: #006699; text-decoration: none; }
+a.messagebox:hover{ color: #006699; text-decoration: underline; }
+
+.button { background-color: #00486F; color: #ffffff; font-size: 10pt; font-weight: bold; border : 1px solid #00486F; padding: 1px; font-family: Manana, Arial, Helvetica, sans-serif; font-style: normal }
+/*
+ * Location navigation style
+ */
+p.loclist{ color: #006699;  text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal; align: left }
+a.loclist:active{ color: #00486f;  text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal }
+a.loclist:link{ color: #00486f; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal }
+a.loclist:visited{ color: #00486f; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal }
+a.loclist:hover{ color: #00486f; text-decoration: underline; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal }

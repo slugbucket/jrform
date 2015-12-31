@@ -1,0 +1,29 @@
+<formlist>
+  <query name="topic_detail">
+    <select>topics.id, users.name, topics.started</select>
+    <from>users, topics</from>
+    <where>topics.id = '4001' AND topics.t_owner = users.id</where>
+  </query>
+  <form name="topics" method="post" action="doform.php" query="top_list" post="&lt;br&gt;">
+    <input type="hidden" name="tid" order="1" post="&lt;br&gt;">4001</input>
+    <input type="text" name="title" class="topics" order="2" pre="Title" post="&lt;br&gt;">Fund Raising</input>
+    <input type="text" name="owner" class="topics" order="3" pre="Owner" post="&lt;br&gt;">The Owner</input>
+    <input type="text" name="opened" class="topics" disabled="yes" order="4" pre="Opened" post="&lt;br&gt;">2005-02-03 17:26:21</input>
+    <input type="text" name="threads" class="topics" readonly="yes" order="5" pre="Threads" post="&lt;br&gt;">3</input>
+    <input type="text" name="messages" readonly="yes" class="topics" order="6" pre="Messages" post="&lt;br&gt;">16</input>
+    <dropdown name="role" value="t_role" order="7" fill="select" class="topics" pre="Permissions" post="&lt;br&gt;">
+      <option value="---">None</option>
+      <option value="r--">Read own</option>
+      <option value="rr-">Read all</option>
+      <option value="wr-">Read all; write own</option>
+      <option value="ww-">Write all</option>
+      <option value="www" selected="yes">Superuser</option>
+    </dropdown>
+    <dropdown name="approved" value="is_approved" order="8" pre="Approved" post="&lt;br&gt;">
+      <option value="yes">Yes</option>
+      <option value="no" selected="yes">No</option>
+    </dropdown>
+    <input type="submit" name="update" class="topics" order="9" post="">Update</input>
+    <input type="reset" name="reset" class="topics" order="10" post="&lt;br&gt;">Reset</input>
+  </form>
+</formlist>

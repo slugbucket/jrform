@@ -1,0 +1,49 @@
+<formlist>
+  <formattr>userid</formattr>
+  <query name="user_detail">
+    <select as="uname">name</select>
+    <select>u_role</select>
+    <select as="last_updated">DATE_FORMAT( last_updated, "%e %b %Y" )</select>
+    <select as="fname">fullname</select>
+    <select as="hint">question</select>
+    <select>email</select>
+    <from>users</from>
+    <!-- constraint -->
+      <where>
+        <expr>id</expr>
+        <expr src="userid" operator="=">userid</expr>
+      </where>
+    <!-- /constraint -->
+  </query>
+  <itemlist query="user_list" nodata="break" per_page="20">
+  </itemlist>
+  <form name="user" method="post" query="user_detail" nodata="break" class="textbox">
+    <input type="hidden" name="ftype" pre="" post="">user</input>
+    <input type="hidden" name="userid" pre="" post="">1</input>
+    <input type="text" name="uname" onclick='this.value=&quot;&quot;'>User name</input>
+    <input type="text" name="fname" pre="" post="" onclick='this.value=&quot;&quot;'>Full name</input>
+    <input type="text" name="email" pre="" post="" width="45" onclick='this.value=&quot;&quot;'>user@domain.com</input>
+    <input type="password" name="password" pre="" post=""></input>
+    <input type="text" name="hint" order="4" pre="" post="" onclick='this.value=&quot;&quot;'>Password Hint</input>
+    <input type="text" name="last_updated" pre="" post="" readonly="yes">Updated</input>
+    <dropdown name="role" value="u_role" order="5" fill="select" pre="" post="">
+      <option value="---">None</option>
+      <option value="r--">Read messages</option>
+      <option value="w--">Post messages</option>
+      <option value="rr-">Read messages, topics</option>
+      <option value="wr-">Write messages, read topics</option>
+      <option value="ww-">Submit Topic</option>
+      <option value="rrr">View Users</option>
+      <option value="wwr">Submit topics, messages, view users</option>
+      <option value="www" selected="yes">Superuser</option>
+    </dropdown>
+    <input type="submit" name="update" class="button" order="7" post="">Update</input>
+    <input type="reset" name="reset" class="button" order="8" post="&lt;br&gt;">Reset</input>
+    <input type="hidden" name="action" pre="" post="">update</input>
+  </form>
+  <form name="search" method="post" class="textbox">
+    <input type="hidden" name="ftype" pre="" post="">user</input>
+    <input type="text" name="surname" pre="Search" post="" onclick='this.value=&quot;&quot;'>Surname</input>
+    <input type="submit" name="find" class="button" post="">Go</input>
+  </form>
+</formlist>

@@ -1,0 +1,11 @@
+Where the scripts go on the megboard site
+
+jrform.php
+driver.php
+classes/Form.php
+classes/InputElement.php
+templates/user_table.php
+userform.php
+users.php
+users.xml
+newuser.xml

@@ -1,0 +1,59 @@
+Current version: 20 April 2005
+ - Support multiple select forms in all their horrific glory.
+ - input/select object choose which db query to use
+ - Add support for textareas
+ - GET/POST data to be merged with the form object via a separate method to
+   showForm.
+28 April 2005. This is done in the main jrform code although the form attrs
+   array is still processed by the showForm method.
+ - Complete form attribute support
+ - Verify operation of Form methods after an input object has been removed.
+28 April 2005
+ - Implement action to be taken when a db query returns no data.
+The nodata XML attribute can have the value 'break' to skip creation of the
+   form if no rows are returned by the query.
+1 May 2005
+ - Implement method for defining pre- and post-form element markup outside
+   form/input/dropdown tags and also be able to choose from also support a
+   default pre and post attribute so the same piece of markup can be used for
+   multiple elements.
+   Given the partial template support below, this might not be needed.
+ - Add a Form::showElement() method to allow display of a particular element
+   rather than the clumsy approach using showForm().
+4 May 2005
+ - Allow XML database queries by breaking down the query into individual parts
+   with separate entities for each select item, each table and each where
+   clause with a 'src' attribute to allow picking a value from a form
+   submission. This will only support simple queries because we do not want
+   to build a SQL parser; the use of strings in the driver code is preferred.
+ - Allow lists of database query list to be specified in the XML file.
+
+Additions
+---------
+ - Added Form object support for addressing form elements by name as well as
+   numerical index.
+1 May 2005
+ - Partial template support added so that the markup for the form can be kept in
+   a template fileand the form elements displayed with PHP calls such as:
+<?php echo $forms[user]->showForm( "head" );
+echo $forms[user]->showForm( "userid" );    ?>
+and
+<tr>
+ <td>Full Name</td><td><?php echo $forms[user]->showForm( "fname" ); ?></td>
+</tr>
+The template technique can be used to decide whether to display a form or not
+if the database query has not returned any rows, or, one of different forms
+based on submitted criteria.
+1 May 2005
+
+Major functions to be added in later versions:
+ - Namespace support to allow multiple forms on one page that use the same
+   form element names but use different data
+ - URL grabber to take a page layout and extract the form details form it and
+   build an XML description (as part of admin interface).
+ - Add PHP session support.
+ - Have a web interface define the query in the XML file so that arbitrary
+   form data can be inserted into the query at runtime.
+ - Add facility to auto-create form items based on repeat criteria - useful for
+   wizard type forms where a form submission results in re-display of the
+   form with an additional item similar to other items.
